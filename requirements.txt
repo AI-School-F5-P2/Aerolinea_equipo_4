@@ -101,3 +101,6 @@ wcwidth==0.2.6
 webcolors==1.13
 webencodings==0.5.1
 websocket-client==1.6.2
+seaborn
+ydata_profiling
+dtale
