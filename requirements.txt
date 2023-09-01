@@ -104,3 +104,5 @@ websocket-client==1.6.2
 seaborn
 ydata_profiling
 dtale
+streamlit
+mitosheet
