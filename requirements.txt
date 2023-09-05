@@ -6,8 +6,6 @@ streamlit
 dtale
 mitosheet
 scikit-learn
-time
-re
 ydata_profiling
 catboost
 xgboost
