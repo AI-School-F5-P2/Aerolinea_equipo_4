@@ -27,11 +27,11 @@ def show_predict_page():
         "Hombre",
     )
 
-    Customer Type = (
+    Customer_Type = (
         "cliente leal",
         "cliente desleal",
     )
-    Type of Travel = ( 
+    Type_of_Travel = ( 
         'Viaje Personal',
         'Viaje de Negocio',
     )
