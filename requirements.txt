@@ -5,7 +5,7 @@ seaborn
 streamlit
 dtale
 mitosheet
-sklearn
+scikit-learn
 time
 re
 ydata_profiling
