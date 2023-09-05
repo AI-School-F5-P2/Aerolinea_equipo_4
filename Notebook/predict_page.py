@@ -1,54 +1,59 @@
+import streamlit as st
+import pickle
+import numpy as np
+
+
 def load_model():
     with open('saved_steps.pkl', 'rb') as file:
-        data = pickle.load(file)
-    return data
+        my_pipeline = pickle.load(file)
+    return my_pipeline
 
-data = load_model()
+my_pipeline = load_model()
 
-regressor = data["model"]
-le_country = data["le_country"]
-le_education = data["le_education"]
+model = my_pipeline["mdl"]
+satisfaction_mapping = my_pipeline["satisfaction_mapping"]
+OH_enc = my_pipeline["OH_enc"]
+scaler = my_pipeline["scaler"]
 
 def show_predict_page():
-    st.title("Software Developer Salary Prediction")
+    st.title("Formulario satisfacción de clientes")
 
-    st.write("""### We need some information to predict the salary""")
+    st.write("""### Por favor complete nuestra encuesta para evaluar la calidad de nuestros servicios. 
+                Le llevará un máximo de 10 minutos y nos ayudará a mejorar la calidad de los servicios que brindamos.""")
 
-    countries = (
-        "United States",
-        "India",
-        "United Kingdom",
-        "Germany",
-        "Canada",
-        "Brazil",
-        "France",
-        "Spain",
-        "Australia",
-        "Netherlands",
-        "Poland",
-        "Italy",
-        "Russian Federation",
-        "Sweden",
+
+    Género  = (
+        "Mujer",
+        "Hombre",
     )
 
-    education = (
-        "Less than a Bachelors",
-        "Bachelor’s degree",
-        "Master’s degree",
-        "Post grad",
+    Customer Type = (
+        "cliente leal",
+        "cliente desleal",
+    )
+    Type of Travel = ( 
+        'Viaje Personal',
+        'Viaje de Negocio',
+    )
+    Class = (
+        'Business', 
+        'Eco', 
+        'Eco Plus',
     )
 
-    country = st.selectbox("Country", countries)
-    education = st.selectbox("Education Level", education)
+    Género = st.selectbox("Género", Género)
+    Customer Type = st.selectbox(" Customer Type",  Customer Type)
+    Type of Travel = st.selectbox(" Type of Travel",  Type of Travel)
+    Class = st.selectbox("Class",  Class)
 
-    expericence = st.slider("Years of Experience", 0, 50, 3)
+    #Age = st.slider("Age", 0, 100, 3)
 
-    ok = st.button("Calculate Salary")
-    if ok:
-        X = np.array([[country, education, expericence ]])
-        X[:, 0] = le_country.transform(X[:,0])
-        X[:, 1] = le_education.transform(X[:,1])
-        X = X.astype(float)
+    #ok = st.button("Calculate Salary")
+    #if ok:
+        #X = np.array([[country, education, expericence ]])
+        #X[:, 0] = le_country.transform(X[:,0])
+        #X[:, 1] = le_education.transform(X[:,1])
+        #X = X.astype(float)
 
-        salary = regressor.predict(X)
-        st.subheader(f"The estimated salary is ${salary[0]:.2f}")
+        #salary = regressor.predict(X)
+        #st.subheader(f"The estimated salary is ${salary[0]:.2f}")
