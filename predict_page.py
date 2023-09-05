@@ -10,8 +10,8 @@ def load_model():
 
 my_pipeline = load_model()
 
-model = my_pipeline["mdl"]
-satisfaction_mapping = my_pipeline["satisfaction_mapping"]
+model = my_pipeline["model"]
+#satisfaction_mapping = my_pipeline["satisfaction_mapping"]
 OH_enc = my_pipeline["OH_enc"]
 scaler = my_pipeline["scaler"]
 
@@ -22,7 +22,7 @@ def show_predict_page():
                 Le llevará un máximo de 10 minutos y nos ayudará a mejorar la calidad de los servicios que brindamos.""")
 
 
-    Género  = (
+    Gender  = (
         "Mujer",
         "Hombre",
     )
@@ -41,12 +41,14 @@ def show_predict_page():
         'Eco Plus',
     )
 
-    Género = st.selectbox("Género", Género)
-    Customer Type = st.selectbox(" Customer Type",  Customer Type)
-    Type of Travel = st.selectbox(" Type of Travel",  Type of Travel)
-    Class = st.selectbox("Class",  Class)
+    Gender = st.selectbox("Género", Gender)
+    Customer_Type = st.selectbox(" Customer Type",  Customer_Type)
+    Type_of_Travel = st.selectbox(" Type of Travel",  Type_of_Travel)
+    Class = st.selectbox("Clase",  Class)
 
-    #Age = st.slider("Age", 0, 100, 3)
+    Age = st.slider("Edad", 0, 100, 1)
+
+    
 
     #ok = st.button("Calculate Salary")
     #if ok:

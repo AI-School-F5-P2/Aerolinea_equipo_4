@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from predict_page import show_predict_page
 
 # secciones
 page = st.sidebar.selectbox("Selecciona una página", ["Visualización de Datos", "Ingresar Datos"])
@@ -31,5 +32,6 @@ if page == "Visualización de Datos":
     st.subheader('Datos de satisfacción de clientes')
     st.dataframe(data)
 
-else:  
-    st.title("Página para Ingresar Datos")
+else: 
+    show_predict_page()
+    #st.title("Página para Ingresar Datos")
