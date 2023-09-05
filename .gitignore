@@ -165,7 +165,8 @@ iframe_figures/
 
 #my working files
 My_work.ipynb
-my_testing.ipynb
+
+.DS_Store
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
