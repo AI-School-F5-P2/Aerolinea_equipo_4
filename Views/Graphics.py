@@ -99,25 +99,25 @@ with st.expander("Grafica Edad"):
 # distintas satisfacciones
 st.write('<span style="color: red;">Grafica de distintas satisfacciones</span>', unsafe_allow_html=True)
 
-def plot_satisfaction_bar_chart(data, column_name, color_list):
-    st.subheader(column_name)
-    value_counts = data[column_name].value_counts(normalize=True, dropna=True)
-    fig, ax = plt.subplots(figsize=(10, 5))
-    value_counts.plot.bar(color=color_list)
-    plt.xticks(rotation=90)
-    plt.xlabel(column_name)
-    st.pyplot(fig)
+# def plot_satisfaction_bar_chart(data, column_name, color_list):
+#     st.subheader(column_name)
+#     value_counts = data[column_name].value_counts(normalize=True, dropna=True)
+#     fig, ax = plt.subplots(figsize=(10, 5))
+#     value_counts.plot.bar(color=color_list)
+#     plt.xticks(rotation=90)
+#     plt.xlabel(column_name)
+#     st.pyplot(fig)
 
-color_list = ['slategray', 'darkslategray', 'steelblue', 'teal', 'cadetblue', 'powderblue']
+# color_list = ['slategray', 'darkslategray', 'steelblue', 'teal', 'cadetblue', 'powderblue']
 
-plot_satisfaction_bar_chart(df, 'Inflight wifi service', color_list)
-plot_satisfaction_bar_chart(df, 'Departure/Arrival time convenient', color_list)
-plot_satisfaction_bar_chart(df, 'Ease of Online booking', color_list)
-plot_satisfaction_bar_chart(df, 'Gate location', color_list)
-plot_satisfaction_bar_chart(df, 'Food and drink', color_list)
-plot_satisfaction_bar_chart(df, 'Online boarding', color_list)
-plot_satisfaction_bar_chart(df, 'Seat comfort', color_list)
-plot_satisfaction_bar_chart(df, 'Inflight entertainment', color_list)
+# plot_satisfaction_bar_chart(df, 'Inflight wifi service', color_list)
+# plot_satisfaction_bar_chart(df, 'Departure/Arrival time convenient', color_list)
+# plot_satisfaction_bar_chart(df, 'Ease of Online booking', color_list)
+# plot_satisfaction_bar_chart(df, 'Gate location', color_list)
+# plot_satisfaction_bar_chart(df, 'Food and drink', color_list)
+# plot_satisfaction_bar_chart(df, 'Online boarding', color_list)
+# plot_satisfaction_bar_chart(df, 'Seat comfort', color_list)
+# plot_satisfaction_bar_chart(df, 'Inflight entertainment', color_list)
 
 with st.expander("distintas satisfacciones"):
     st.write("""

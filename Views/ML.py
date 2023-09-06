@@ -87,6 +87,86 @@ st.write("""
 
 
 
+code = ''' 
+def split_data(features, target, test_size=0.4, random_state=42):
+    X_train, X_test, y_train, y_test = train_test_split(
+        features, target, test_size=test_size, random_state=random_state
+    )
+
+    X_test, X_val, y_test, y_val = train_test_split(
+        X_test, y_test, test_size=0.5, random_state=random_state
+    )
+
+    return X_train, X_test, y_train, y_test, X_val, y_val
+
+def clean_name_model(model):
+    pattern = r'(?<=[a-z])(?=[A-Z])'
+    return re.sub(pattern, ' ', model)
+
+def evaluate_model(model, X_train, y_train, X_test, y_test, X_val, y_val):
+    time_start = time.time()
+    model.fit(X_train, y_train)
+    time_end = time.time()
+    model_scores = cross_val_score(model, X_train, y_train.values.ravel(), cv=5)
+    
+    y_pred_test = model.predict(X_test)
+    accuracy_test = accuracy_score(y_test, y_pred_test)
+    precision_test = precision_score(y_test, y_pred_test)
+    recall_test = recall_score(y_test, y_pred_test)
+
+    y_pred_val = model.predict(X_val)
+    accuracy_val = accuracy_score(y_val, y_pred_val)
+    precision_val = precision_score(y_val, y_pred_val)
+    recall_val = recall_score(y_val, y_pred_val)
+
+    train_predictions = model.predict(X_train)
+    test_predictions = model.predict(X_test)
+
+    train_mae_train = mae(y_train, train_predictions)
+    test_mae_test = mae(y_test, test_predictions)
+    overfitting_percentage = (test_mae_test - train_mae_train) / train_mae_train * 100
+    
+    # Calcular la curva ROC y el AUC
+    y_pred_proba = model.predict_proba(X_test)[:, 1]
+    fpr, tpr, _ = roc_curve(y_test, y_pred_proba)
+    auc = roc_auc_score(y_test, y_pred_proba)
+
+    # Calcular las matrices de confusión y limpia el nombre del modelo
+    conf_mx = confusion_matrix(y_test, y_pred_test)
+    name_model = clean_name_model(model.__class__.__name__)
+
+    return {
+        'Model': name_model,
+        'Model Scores': model_scores,
+        'Accuracy (test)': accuracy_test,
+        'Accuracy (validate)': accuracy_val,
+        'Precision (test)': precision_test,
+        'Precision (validate)': precision_val,
+        'Recall (test)': recall_test,
+        'Recall (validate)': recall_val,
+        'Train MAE': train_mae_train,
+        'Test MAE': test_mae_test,
+        'Training Time': time_end - time_start,
+        'Overfitting %': overfitting_percentage,
+        'Confusion Matrix': conf_mx,
+        'ROC Curve': (fpr, tpr, auc),
+    }
+
+def train_and_evaluate_models(df, features, target, models):
+    X_train, X_test, y_train, y_test, X_val, y_val = split_data(features, target)
+
+    # Evaluate the models
+    metrics = []
+    for model in models:
+        model_metrics = evaluate_model(model, X_train, y_train, X_test, y_test, X_val, y_val)
+        metrics.append(model_metrics)
+
+    return pd.DataFrame(metrics)
+    '''
+st.code(code, language='python')
+
+
+
 
 #    <li>Eliminar valores duplicados</li>
 #             <li>Eliminar columnas innecesarias</li>
