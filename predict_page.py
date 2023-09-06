@@ -42,11 +42,31 @@ def show_predict_page():
     )
 
     Gender = st.selectbox("Género", Gender)
-    Customer_Type = st.selectbox(" Customer Type",  Customer_Type)
-    Type_of_Travel = st.selectbox(" Type of Travel",  Type_of_Travel)
+    Customer_Type = st.selectbox("Tipo de cliente",  Customer_Type)
+    Type_of_Travel = st.selectbox("Tipo de Viaje",  Type_of_Travel)
     Class = st.selectbox("Clase",  Class)
 
     Age = st.slider("Edad", 0, 100, 1)
+    Flight_distance = st.slider("Distancia de vuelo", 0, 5000, 10)
+    Inflight_wifi_service = st.slider("Servicio wifi a bordo", 0, 5, 1)
+    Departure_Arrival_time_convenien = st.slider("Hora de salida/llegada conveniente", 0, 5, 1)
+    Ease_of_Online_booking = st.slider("Facilidad de reserva en línea", 0, 5, 1)
+    Gate_location = st.slider("Ubicación de la puerta", 0, 5, 1)
+    Food_and_drink = st.slider("Comida y bebida", 0, 5, 1)
+    Online_boarding = st.slider("Embarque online", 0, 5, 1)
+    Seat_comfort = st.slider("Confort del asiento", 0, 5, 1)
+    Inflight_entertainment = st.slider("Entretenimiento a bordo:", 0, 5, 1)
+    Onboard_service = st.slider("Servicio a bordo", 0, 5, 1)
+    Leg_room_service = st.slider("Servicio de habitaciones para piernas", 0, 5, 1)
+    Baggage_handling = st.slider("Manejo de equipaje", 0, 5, 1)
+    Checkin_service = st.slider("Servicio de Check-in", 0, 5, 1)
+    Inflight_service = st.slider("Servicio a bordo", 0, 5, 1)
+    Cleanliness = st.slider("Limpieza", 0, 5, 1)
+    Departure_delay_minutes = st.slider("Retraso de salida en minutos", 0, 1600, 1)
+    Arrival_delay_in_minutes = st.slider("Retraso de llegada en minutos", 0, 1600, 1)
+
+
+
 
     
 
