@@ -12,7 +12,6 @@ def load_model():
 my_pipeline = load_model()
 
 model = my_pipeline["model"]
-#satisfaction_mapping = my_pipeline["satisfaction_mapping"]
 OH_enc = my_pipeline["OH_enc"]
 scaler = my_pipeline["scaler"]
 
