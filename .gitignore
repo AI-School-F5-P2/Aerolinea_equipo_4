@@ -167,6 +167,8 @@ iframe_figures/
 #my working files
 My_work.ipynb
 .gitpod.yml
+My_testing.ipynb
+saved_steps.pkl
 
 .DS_Store
 
