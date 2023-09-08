@@ -46,7 +46,7 @@ if page == "Visualización de Datos":
     # FIRST TEXT
     st.write("""
     <div style="margin: 10px 0px; display: flex; justify-content: center; align-items: center; box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; padding: 10px;">
-        <p style="font-size: 16px;">F5 Airlines lleva un tiempo recogiendo datos relativos a la satisfacción de los clientes. Esos datos han sido utilizados en general, pero con poco éxito, para ser analizados a mano en busca de los motivos</p>
+        <p style="font-size: 16px;">F5 Airlines lleva un tiempo recogiendo datos relativos a la satisfacción de los clientes. Esos datos han sido utilizados en general, pero con poco éxito, para ser analizados a mano en busca de los motivos y de un plan de actuación futuro para evitar este tipo de casos.</p>
     </div>""", unsafe_allow_html=True)
 
     # FIRST TEXT
