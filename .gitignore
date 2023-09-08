@@ -172,6 +172,8 @@ saved_steps.pkl
 
 .DS_Store
 
+Views\Credentials\DB.json
+DB.json
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore

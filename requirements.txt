@@ -10,3 +10,4 @@ ydata_profiling
 catboost
 xgboost
 tabulate
+mysql-connector-python
