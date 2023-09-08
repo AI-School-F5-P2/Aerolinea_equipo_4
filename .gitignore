@@ -160,6 +160,18 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+#mitosheet
+iframe_figures/
+
+#my working files
+My_work.ipynb
+.gitpod.yml
+My_testing.ipynb
+saved_steps.pkl
+
+.DS_Store
+
 Views\Credentials\DB.json
 DB.json
 # PyCharm
