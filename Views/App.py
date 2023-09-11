@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 import json
 import streamlit as st
 import time
-
+from predict_page import show_predict_page
 # secciones
 page = st.sidebar.selectbox("Selecciona una página", ["Visualización de Datos", "Ingresar Datos"])
 
@@ -82,4 +82,4 @@ if page == "Visualización de Datos":
 
 
 else:  
-    st.title("Página para Ingresar Datos")
+    show_predict_page()

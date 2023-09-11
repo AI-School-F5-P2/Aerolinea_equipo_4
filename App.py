@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from predict_page import show_predict_page
+from Views.predict_page import show_predict_page
 
 # secciones
 page = st.sidebar.selectbox("Selecciona una página", ["Visualización de Datos", "Ingresar Datos"])
