@@ -80,7 +80,6 @@ def insert_data(conn, data):
             data["Cleanliness"], data["Arrival_delay_minutes"]
         ))
         conn.commit()
-        st.write("Datos insertados correctamente en la tabla 'data_client'")
     except mysql.connector.Error as e:
         st.error(f"Error al insertar datos: {e}")
     finally:

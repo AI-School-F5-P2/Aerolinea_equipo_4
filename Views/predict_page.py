@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
+from Connection import establish_connection
 
 # Define las opciones para los selectboxes
 Gender_Box = ["Male", "Female"]
@@ -121,6 +122,33 @@ def show_predict_page():
             Departure_delay_minutes,
             Arrival_delay_minutes,
         )
+        data_form = {
+            "id_passenger": 1,
+            "Gender": Gender,
+            "Customer_Type": Customer_Type,
+            "Age": Age,
+            "Type_of_Travel": Type_of_Travel,
+            "Class": Class,
+            "Flight_distance": Flight_distance,
+            "Inflight_wifi_service": Inflight_wifi_service,
+            "datc": Departure_Arrival_time_convenient,
+            "Ease_of_Online_booking": Ease_of_Online_booking,
+            "Gate_location": Gate_location, 
+            "Food_and_drink": Food_and_drink,
+            "Online_boarding": Online_boarding,
+            "Departure_delay_minutes": Departure_delay_minutes,
+            "Seat_comfort": Seat_comfort,
+            "Inflight_entertainment": Inflight_entertainment,
+            "Onboard_service": Onboard_service,
+            "Leg_room_service": Leg_room_service,
+            "Baggage_handling": Baggage_handling,
+            "Checkin_service": Checkin_service,
+            "Inflight_service": Inflight_service,
+            "Cleanliness": Cleanliness,
+            "Arrival_delay_minutes": Arrival_delay_minutes,
+        }
+        
+        establish_connection(data_form)
         
         # Load model
         with open('../ML/model.pkl', 'rb') as file:
