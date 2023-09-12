@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
-import streamlit as st
-import seaborn as sns
+import time
+import json
 import pandas as pd
+import seaborn as sns
+import streamlit as st
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
-import json
-import streamlit as st
-import time
 from predict_page import show_predict_page
+
 # secciones
 page = st.sidebar.selectbox("Selecciona una página", ["Visualización de Datos", "Ingresar Datos"])
 
@@ -53,12 +52,11 @@ if page == "Visualización de Datos":
     st.write("""
     <div style="margin: 10px 0px; display: flex; box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; padding: 10px; flex-direction: column;">
         <p style="font-size: 16px;">Es posible resolver este problema con inteligencia artificial, el plan tiene dos fases: </p>
-             <ul>
+            <ul>
                 <li>Entrenar un modelo que prediga de manera satisfactoria si un cliente dado estará satisfecho o no.</li>
                 <li>Desarrollar una pequeña aplicación que recoja los datos de un cliente nuevo y realice una predicción sobre su grado de satisfacción.</li>
             </ul>
     </div>""", unsafe_allow_html=True)
-  
 
 
     # button created
