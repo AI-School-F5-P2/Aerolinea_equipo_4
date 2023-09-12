@@ -81,4 +81,3 @@ if page == "Visualización de Datos":
 
 else:  
     show_predict_page()
-    

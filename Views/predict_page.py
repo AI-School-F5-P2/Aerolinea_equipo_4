@@ -3,8 +3,6 @@ import pickle
 import numpy as np
 import pandas as pd
 
-#new_data = []
-
 # Define las opciones para los selectboxes
 Gender_Box = ["Male", "Female"]
 Customer_Type_Box = ["Loyal Customer", "Disloyal Customer"]
@@ -123,12 +121,14 @@ def show_predict_page():
             Departure_delay_minutes,
             Arrival_delay_minutes,
         )
-            # Load model
+        
+        # Load model
         with open('../ML/model.pkl', 'rb') as file:
             model = pickle.load(file)
 
         # Realiza la predicción
         predict = model.predict(pd.DataFrame(new_data))
+        
         # Guarda el ultimo dato ingresado
         result = predict[-1]
         
