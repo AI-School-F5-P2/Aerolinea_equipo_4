@@ -148,7 +148,7 @@ def show_predict_page():
             "Arrival_delay_minutes": Arrival_delay_minutes,
         }
         
-        establish_connection(data_form)
+        # establish_connection(data_form)
         
         # Load model
         with open('../ML/model_gbc.pkl', 'rb') as file:
