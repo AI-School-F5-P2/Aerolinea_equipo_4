@@ -151,7 +151,7 @@ def show_predict_page():
         establish_connection(data_form)
         
         # Load model
-        with open('../ML/model.pkl', 'rb') as file:
+        with open('../ML/model_gbc.pkl', 'rb') as file:
             model = pickle.load(file)
 
         # Realiza la predicción
