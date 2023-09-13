@@ -3,6 +3,8 @@ import pickle
 import numpy as np
 import pandas as pd
 from Connection import establish_connection
+from Connection import insert_data
+from Connection import execute_sql_file
 
 # Define las opciones para los selectboxes
 Gender_Box = ["Male", "Female"]
@@ -122,6 +124,18 @@ def show_predict_page():
             Departure_delay_minutes,
             Arrival_delay_minutes,
         )
+        
+        
+        # Load model
+        with open('../ML/model_gbc.pkl', 'rb') as file:
+            model = pickle.load(file)
+
+        # Realiza la predicción
+        predict = model.predict(pd.DataFrame(new_data))
+        
+        # Guarda el ultimo dato ingresado
+        result = predict[-1]
+        
         data_form = {
             "id_passenger": 1,
             "Gender": Gender,
@@ -146,23 +160,17 @@ def show_predict_page():
             "Inflight_service": Inflight_service,
             "Cleanliness": Cleanliness,
             "Arrival_delay_minutes": Arrival_delay_minutes,
+            "predict": result,
         }
         
-        # establish_connection(data_form)
-        
-        # Load model
-        with open('../ML/model_gbc.pkl', 'rb') as file:
-            model = pickle.load(file)
-
-        # Realiza la predicción
-        predict = model.predict(pd.DataFrame(new_data))
-        
-        # Guarda el ultimo dato ingresado
-        result = predict[-1]
-        
         # limpia y vacia predict
+        connection = establish_connection()
+        execute_sql_file(connection, "./Credentials/airline.sql")
+        insert_data(connection, data_form)
+        
         predict = []
         new_data = []
+        data_form = {}
         
         # Muestra el resultado
         st.success(f"El cliente está {'satisfecho 😍' if result == 1 else 'insatisfecho 🥺'}")

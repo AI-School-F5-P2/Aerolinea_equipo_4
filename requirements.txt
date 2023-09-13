@@ -11,3 +11,5 @@ catboost
 xgboost
 tabulate
 mysql-connector-python
+pymysql
+python-decouple
