@@ -1,6 +1,8 @@
 # env
-aereolinea_env
 
+catboost_info
+aereolinea_env
+Test/App.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -160,6 +162,19 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+#mitosheet
+iframe_figures/
+
+#my working files
+My_work.ipynb
+.gitpod.yml
+My_testing.ipynb
+saved_steps.pkl
+
+.DS_Store
+
+Views\Credentials\DB.json
+DB.json
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
